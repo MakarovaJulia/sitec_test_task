@@ -138,7 +138,7 @@ def index():
     tables_data = []
     for level in object_levels:
         level_value = level[0]
-        cur.execute('SELECT typename, name FROM objects WHERE level = %s', (level_value,))
+        cur.execute('SELECT typename, name FROM objects WHERE level = %s ORDER BY name ASC', (level_value,))
         data = cur.fetchall()
 
         tables_data.append({
