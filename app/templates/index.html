@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Отчет</title>
+</head>
+<body>
+    <h1 style="color: dodgerblue; border-bottom: 3px solid lightgray">Отчет по добавленным адресным объектам за {{ date[0] }}</h1>
+    <div>
+        {% for object in tables_data %}
+            {% if object.data != [] %}
+                <h2 style="color: dodgerblue;">{{ object.level }}</h2>
+                    <table style="border: 1px solid lightgrey;">
+                        <tr style="border: 1px solid lightgrey;">
+                            <th style="font-weight: bold; border: 1px solid lightgrey;">Тип объекта</th>
+                            <th style="font-weight: bold; border: 1px solid lightgrey;">Наименование</th>
+                        </tr>
+                        {% for data_arr_elem in object.data %}
+                            <tr style="border: 1px solid lightgrey;">
+                                <th style="font-weight: 200; border: 1px solid lightgrey;">{{ data_arr_elem.typename }}</th>
+                                <th style="font-weight: 200; border: 1px solid lightgrey;">{{ data_arr_elem.name }}</th>
+                            </tr>
+                        {% endfor %}
+                    </table>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>
